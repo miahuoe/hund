@@ -720,7 +720,7 @@ static void interpreter(struct ui* const i, struct task* const t,
 			failed(i, "chdir", strerror(e));
 			return;
 		}
-		xstrlcpy(line+line_len, anykey, linesize);
+		xstrlcpy(line+line_len, anykey, linesize-line_len);
 		char* const arg[] = { xgetenv(sh), "-i", "-c", line+3, NULL };
 		spawn(arg, 0);
 	}
